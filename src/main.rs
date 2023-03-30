@@ -2,8 +2,9 @@ use ltc::utils::*;
 use std::{io, path::Path};
 
 fn main() -> io::Result<()> {
-    println!("Welcome, this is a placeholder text");
-    let file = open_file(Path::new("./todos.json"))?;
-    println!("Now I will print the file {:?}", file);
+    let path = Path::new("./todos.json");
+    let file = open_file(path)?;
+    let file_content = get_file_content(file)?;
+    println!("{file_content}");
     Ok(())
 }
