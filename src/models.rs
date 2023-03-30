@@ -1,6 +1,18 @@
 use serde::{Deserialize, Serialize};
 use uuid::Uuid;
 
+/// This struct will store all the Todos that will be made
+/// by the user
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Todos(Vec<Todo>);
+
+impl From<Vec<Todo>> for Todos {
+    fn from(value: Vec<Todo>) -> Self {
+        Todos(value)
+    }
+}
+
 /// The Todo struct is the principal object in our app.
 /// It contains all the information about the todo.
 ///
@@ -47,5 +59,27 @@ mod tests {
         let todo = Todo::new(name.clone());
         assert_eq!(todo.get_title(), name);
         assert!(!todo.is_done());
+    }
+
+    #[test]
+    fn test_new_todos() {
+        let vector = vec![
+            String::from("Terminar esta app"),
+            String::from("Segunda Tarea"),
+            String::from("Tercera Tarea"),
+        ];
+
+        let mut todos_vec: Vec<Todo> = Vec::new();
+        for todo in &vector {
+            todos_vec.push(Todo::new(todo.to_owned()));
+        }
+
+        let todos: Todos = Todos::from(todos_vec);
+
+        for todo in todos.0.iter() {
+            assert!(!todo.get_id().is_empty());
+            assert!(!todo.get_title().is_empty());
+            assert!(!todo.is_done());
+        }
     }
 }
