@@ -43,8 +43,9 @@ mod tests {
 
     #[test]
     fn test_new_todo() {
-        let todo = Todo::new("Terminar esta app".to_owned());
-        assert_eq!(todo.get_title(), String::from("Terminar esta app"));
+        let name = String::from("Terminar esta app");
+        let todo = Todo::new(name.clone());
+        assert_eq!(todo.get_title(), name);
         assert!(!todo.is_done());
     }
 }
