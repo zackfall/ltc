@@ -1,10 +1,10 @@
-use ltc::utils::*;
-use std::{io, path::Path};
+use std::io;
+
+use ltc::app::AppBuilder;
 
 fn main() -> io::Result<()> {
-    let path = Path::new("./todos.json");
-    let file = open_file(path)?;
-    let file_content = get_file_content(file)?;
+    let mut app = AppBuilder::default().build();
+    let file_content = app.get_file_content()?;
     println!("{file_content}");
     Ok(())
 }
