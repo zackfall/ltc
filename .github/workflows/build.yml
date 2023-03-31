@@ -52,7 +52,7 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: build
-          args: --relesase --all-features
+          args: --release --all-features
       - name: Release
         uses: google-github-actions/release-please-action@v3
         with:
