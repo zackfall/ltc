@@ -27,6 +27,7 @@ pub struct Todo {
 }
 
 impl Todo {
+    #[must_use]
     pub fn new(title: String) -> Self {
         let id = Uuid::new_v4();
 
@@ -38,16 +39,19 @@ impl Todo {
     }
 
     /// Get the Todo id
+    #[must_use]
     pub fn get_id(&self) -> String {
         self.id.to_string()
     }
 
     /// Get the Todo title
+    #[must_use]
     pub fn get_title(&self) -> String {
         self.title.clone()
     }
 
     /// Tell us if the Todo is done
+    #[must_use]
     pub fn is_done(&self) -> bool {
         self.done
     }
@@ -75,12 +79,12 @@ mod tests {
 
         let mut todos_vec: Vec<Todo> = Vec::new();
         for todo in &vector {
-            todos_vec.push(Todo::new(todo.to_owned()));
+            todos_vec.push(Todo::new(todo.to_string()));
         }
 
         let todos: Todos = Todos::from(todos_vec);
 
-        for todo in todos.0.iter() {
+        for todo in &todos.0 {
             assert!(!todo.get_id().is_empty());
             assert!(!todo.get_title().is_empty());
             assert!(!todo.is_done());
