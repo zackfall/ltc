@@ -13,6 +13,11 @@ pub struct App {
 }
 
 impl App {
+    /// Function to get the content of the file that is stored in the App.
+    ///
+    /// Returns:
+    /// It will should always return a String, but in case of error, will be an Io
+    /// Error
     pub fn get_file_content(&mut self) -> io::Result<String> {
         let meta = self.file.metadata()?;
         if meta.len() != 0 {
@@ -25,6 +30,7 @@ impl App {
     }
 }
 
+/// Application builder to ease the process of creation and management of the app
 pub struct AppBuilder {
     path: &'static Path,
     file: File,
@@ -39,6 +45,7 @@ impl Default for AppBuilder {
 }
 
 impl AppBuilder {
+    /// Build the app with the path and file stored in the builder
     pub fn build(self) -> App {
         App {
             path: self.path,
@@ -46,11 +53,13 @@ impl AppBuilder {
         }
     }
 
+    /// Modify the path stored in the AppBuilder
     pub fn path(&mut self, path: &'static Path) -> &mut AppBuilder {
         self.path = path;
         self
     }
 
+    /// Modify the file stored in the AppBuilder
     pub fn file(&mut self, file: File) -> &mut AppBuilder {
         self.file = file;
         self

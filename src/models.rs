@@ -8,6 +8,7 @@ use uuid::Uuid;
 pub struct Todos(Vec<Todo>);
 
 impl From<Vec<Todo>> for Todos {
+    /// Get a Todos type from a Vector o Todo
     fn from(value: Vec<Todo>) -> Self {
         Todos(value)
     }
@@ -36,14 +37,17 @@ impl Todo {
         }
     }
 
+    /// Get the Todo id
     pub fn get_id(&self) -> String {
         self.id.to_string()
     }
 
+    /// Get the Todo title
     pub fn get_title(&self) -> String {
         self.title.clone()
     }
 
+    /// Tell us if the Todo is done
     pub fn is_done(&self) -> bool {
         self.done
     }
