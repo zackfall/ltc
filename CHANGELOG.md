@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/zackfall/ltc/compare/v0.1.0...v0.2.0) (2023-04-04)
+
+
+### Features
+
+* add a workflow to upload artifacts and release a new version ([3dad43d](https://github.com/zackfall/ltc/commit/3dad43d796824145dd12ee106c1b55f9a337b623))
+
 ## 0.1.0 (2023-03-31)
 
 
