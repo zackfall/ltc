@@ -69,4 +69,4 @@ jobs:
         uses: taiki-e/install-action@cargo-hack
       - name: cargo hack
         # Using `--no-dev-deps`; see https://github.com/rust-lang/cargo/issues/4866
-        run: cargo hack --features-powerset --no-dev-deps check
+        run: cargo hack --feature-powerset --no-dev-deps check
