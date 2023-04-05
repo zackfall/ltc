@@ -16,7 +16,7 @@ impl App {
     /// Function to get the content of the file that is stored in the App.
     ///
     /// # Errors
-    /// It could return a Io Error in case the file doesn't exists or,
+    /// It could return an Io Error in case the file doesn't exists or,
     /// if the data in the file is no valid UTF
     pub fn get_file_content(&mut self) -> io::Result<String> {
         let meta = self.file.metadata()?;
