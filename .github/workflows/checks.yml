@@ -58,7 +58,7 @@ jobs:
           RUSTDOCFLAGS: --cfg docsrs
   hack:
     runs-on: ubuntu-latest
-    name: ubuntu / stable / features
+    name: ubuntu / stable / hack
     steps:
       - uses: actions/checkout@v3
         with:
@@ -75,7 +75,7 @@ jobs:
     strategy:
       matrix:
         msrv: [1.56.1] # 2021 edition requires 1.56
-    name: ubuntu / ${{ matrix.msrv }}
+    name: ubuntu / ${{ matrix.msrv }} / msrv
     steps:
       - uses: actions/checkout@v3
         with:
