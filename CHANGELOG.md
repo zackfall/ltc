@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/zackfall/ltc/compare/v0.3.0...v0.3.1) (2023-04-05)
+
+
+### Bug Fixes
+
+* make release-please update the Cargo.toml file ([6dd5542](https://github.com/zackfall/ltc/commit/6dd5542f38bd0957b862c486b699fadafce8aa52))
+
 ## [0.3.0](https://github.com/zackfall/ltc/compare/v0.2.0...v0.3.0) (2023-04-05)
 
 
