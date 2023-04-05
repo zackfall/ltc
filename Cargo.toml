@@ -1,6 +1,6 @@
 [package]
 name = "ltc"
-version = "0.1.0"
+version = "0.3.1"
 description = "Local Todo CLI"
 edition = "2021"
 license = "MIT"
@@ -9,7 +9,7 @@ repository = "https://github.com/zackfall/ltc"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-crossterm = "0.26.1"
+crossterm = "0.25.0"
 serde = { version = "1.0.159", features = ["derive"] }
 serde_json = "1.0.95"
 uuid = { version = "1.3.0", features = ["v4", "serde", "macro-diagnostics"] }
