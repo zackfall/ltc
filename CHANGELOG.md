@@ -1,5 +1,24 @@
 # Changelog
 
+## [0.3.0](https://github.com/zackfall/ltc/compare/v0.2.0...v0.3.0) (2023-04-05)
+
+
+### Features
+
+* add a job for the minimum supported rust version (msrv) ([bac5364](https://github.com/zackfall/ltc/commit/bac536455474459474eaa1fc3bf4031417be0a42))
+* add cargo-hack to better checks ([bac5364](https://github.com/zackfall/ltc/commit/bac536455474459474eaa1fc3bf4031417be0a42))
+* add checks for clippy ([bac5364](https://github.com/zackfall/ltc/commit/bac536455474459474eaa1fc3bf4031417be0a42))
+* add checks for the documentation ([bac5364](https://github.com/zackfall/ltc/commit/bac536455474459474eaa1fc3bf4031417be0a42))
+* prepare for version 0.3.0 ([#8](https://github.com/zackfall/ltc/issues/8)) ([bac5364](https://github.com/zackfall/ltc/commit/bac536455474459474eaa1fc3bf4031417be0a42))
+* **workflow:** add a check for the rustfmt ([bac5364](https://github.com/zackfall/ltc/commit/bac536455474459474eaa1fc3bf4031417be0a42))
+* **workflow:** add check workflows for rust ([bac5364](https://github.com/zackfall/ltc/commit/bac536455474459474eaa1fc3bf4031417be0a42))
+
+
+### Bug Fixes
+
+* downgrade crossterm to make msrv happy ([bac5364](https://github.com/zackfall/ltc/commit/bac536455474459474eaa1fc3bf4031417be0a42))
+* typo ([bac5364](https://github.com/zackfall/ltc/commit/bac536455474459474eaa1fc3bf4031417be0a42))
+
 ## [0.2.0](https://github.com/zackfall/ltc/compare/v0.1.0...v0.2.0) (2023-04-04)
 
 
