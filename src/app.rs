@@ -6,10 +6,36 @@ use std::{
 };
 
 /// The app struct that will contain configurations and important data for the program
+///
+/// # Example
+/// ```rust
+/// use std::path::Path;
+/// use std::fs::{File, remove_file};
+/// use ltc::app::App;
+///
+/// let test_path = Path::new("./test-todo.json");
+/// let test_file = File::create(test_path).expect("Should return a new file");
+/// let mut app = App::default();
+/// app.set_path(test_path).set_file(test_file);
+/// let file_content = app.get_file_content().expect("Should return an empty string");
+/// assert_eq!(file_content, "The file is empty".to_owned());
+/// remove_file(test_path);
+/// ```
 #[derive(Debug)]
 pub struct App {
-    pub path: &'static Path,
-    pub file: File,
+    path: &'static Path,
+    file: File,
+}
+
+impl Default for App {
+    fn default() -> Self {
+        let path = Path::new("./todos.json");
+        let file = open_file(path).expect("Should open the file byt the given path");
+        Self {
+            path,
+            file,
+        }
+    }
 }
 
 impl App {
@@ -28,44 +54,14 @@ impl App {
             Ok(output)
         }
     }
-}
 
-/// Application builder to ease the process of creation and management of the app
-pub struct Builder {
-    file_path: &'static Path,
-    todos_file: File,
-}
-
-impl Default for Builder {
-    fn default() -> Self {
-        let path = Path::new("./todos.json");
-        let file = open_file(path).expect("Should open the file byt the given path");
-        Self {
-            file_path: path,
-            todos_file: file,
-        }
-    }
-}
-
-impl Builder {
-    /// Build the app with the path and file stored in the builder
-    #[must_use]
-    pub fn build(self) -> App {
-        App {
-            path: self.file_path,
-            file: self.todos_file,
-        }
-    }
-
-    /// Modify the path stored in the `AppBuilder`
-    pub fn path(&mut self, path: &'static Path) -> &mut Builder {
-        self.file_path = path;
+    pub fn set_path(&mut self, path: &'static Path) -> &mut App {
+        self.path = path;
         self
     }
 
-    /// Modify the file stored in the `AppBuilder`
-    pub fn file(&mut self, file: File) -> &mut Builder {
-        self.todos_file = file;
+    pub fn set_file(&mut self, file: File) -> &mut App {
+        self.file = file;
         self
     }
 }

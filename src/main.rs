@@ -1,9 +1,9 @@
 use std::io;
 
-use ltc::app::Builder;
+use ltc::app::App;
 
 fn main() -> io::Result<()> {
-    let mut app = Builder::default().build();
+    let mut app = App::default();
     let file_content = app.get_file_content()?;
     println!("{file_content}");
     Ok(())
